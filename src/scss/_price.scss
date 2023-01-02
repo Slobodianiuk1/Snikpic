@@ -1,0 +1,125 @@
+.section {
+    // .section__price
+    &__price {
+        margin-bottom: 40px;
+        @media (max-width: $breakpoint992) {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    @media (max-width: $breakpoint480){
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    // .price__item
+    &__item {
+        flex: 1 1 45%;
+        &-right {
+            flex: 1 1 55%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background: url('../img/price-bg.svg') center / cover no-repeat;
+            height: 100%;
+            padding: 390px 0;
+            @media (max-width: $breakpoint992){
+                padding: 200px 0;
+            }
+            @media (max-width: $breakpoint480){
+                padding: 100px 0;
+            }
+
+        }
+    }
+
+    // .price__list
+    &__list {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin: 40px 0;
+
+        @media (max-width: $breakpoint992){
+            gap: 8px;
+            margin: 20px 0;
+        }
+
+        &-item {
+            padding: 8px 20px;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 180%;
+            border-radius: 24px;
+            @media (max-width: $breakpoint992){
+                padding: 4px 10px;
+                font-size: 16px;
+                line-height: 150%;
+            }
+
+            &:nth-child(1) {
+                background: #FFF1EF;
+                border: 1px solid #FFD1CA;
+                color: #FF8B7A;
+            }
+
+            &:nth-child(2) {
+                background: #FFF8EE;
+                border: 1px solid #FFCA7A;
+                color: #FFAC2F;
+            }
+
+            &:nth-child(3) {
+                background: #ECFFF4;
+                border: 1px solid #98FAC0;
+                color: #3ACD77;
+            }
+
+            &:nth-child(4) {
+                background: #F1FEFF;
+                border: 1px solid #6EE1E9;
+                color: #2BC0CA;
+            }
+
+            &:nth-child(5) {
+                background: #FCF5FF;
+                border: 1px solid #EBBDFF;
+                color: #C140FD;
+            }
+        }
+
+    }
+
+}
+
+.pricing-tag {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 120px;
+    line-height: 80%;
+    letter-spacing: -0.03em;
+    color: #1D2736;
+    margin-bottom: 16px;
+    @media (max-width: $breakpoint992){
+        font-size: 70px;
+        margin-bottom: 10px;
+    }
+}
+
+.period {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 180%;
+    color: #1D2736;
+    @media (max-width: $breakpoint992){
+        font-size: 15px;
+    }
+}

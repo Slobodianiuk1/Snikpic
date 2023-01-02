@@ -1,7 +1,7 @@
 // Container & Breakpoints
 @use 'sass:math';
 $containerWidth: 1160; // Размір контейнера
-$containerPadding: 80; // Відступи
+$containerPadding: 40; // Відступи
 $containerSidePadding: math.div($containerPadding, 2);
 $breakpoint1450: 1449.98 + px;
 $breakpoint1200: 1199.98 + px;

@@ -121,6 +121,27 @@ body.locked {
   color: #ffffff;
 }
 
+.section__title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 110%;
+  letter-spacing: -0.03em;
+  color: #1D2736;
+}
+
+.section__title span {
+  color: #F0998D;
+}
+
+.section__text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 180%;
+  color: #677487;
+}
+
 @-webkit-keyframes fade {
   0% {
     opacity: 0;
@@ -333,6 +354,7 @@ body.locked {
 
 .section__hero {
   padding-top: 61px;
+  margin-bottom: 144px;
 }
 
 .hero {
@@ -486,6 +508,132 @@ body.locked {
   gap: 38px;
 }
 
+.section__tabs {
+  padding: 100px 0 140px;
+  background: #FDF9F8;
+  margin-bottom: 40px;
+}
+
+.tabs {
+  width: 100%;
+}
+
+.tabs__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  gap: 16px;
+}
+
+.tabs__header-item {
+  margin-right: 48px;
+  cursor: pointer;
+  position: relative;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 180%;
+  color: #1D2736;
+}
+
+.tabs__header-item:last-child {
+  margin-right: 0;
+}
+
+.tabs__header-item.active:after {
+  position: absolute;
+  content: "";
+  height: 3px;
+  width: 100%;
+  background-color: #F0998D;
+  bottom: -15px;
+  left: 0;
+}
+
+.tabs__content {
+  margin-top: 64px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 82px;
+}
+
+.tabs__content-item {
+  -webkit-animation: fade 0.5s linear;
+          animation: fade 0.5s linear;
+}
+
+.tab {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 30px;
+}
+
+.tab__item {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 48%;
+          flex: 0 1 48%;
+}
+
+.tab__item.left__item {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 48%;
+          flex: 0 1 48%;
+}
+
+.tab__subtitle {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 180%;
+  letter-spacing: 0.2em;
+  color: #677487;
+  margin-bottom: 15px;
+}
+
+.tab__img {
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+}
+
+.tags {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 16px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.tags__item {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  color: #1D2736;
+}
+
+.tags__item:not(.tags__item:last-child) {
+  padding-right: 16px;
+  border-right: 1px solid rgba(29, 39, 54, 0.1);
+}
+
 @media (max-width: 1449.98px) {
   .container {
     max-width: 1200px;
@@ -508,6 +656,7 @@ body.locked {
 
   .section__hero {
     padding-top: 30px;
+    margin-bottom: 60px;
   }
 
   .hero {
@@ -550,6 +699,15 @@ body.locked {
   .btn {
     padding: 6px 22px;
     font-size: 14px;
+  }
+
+  .section__title {
+    font-size: 26px;
+  }
+
+  .section__text {
+    font-size: 14px;
+    line-height: 160%;
   }
 
   .navbar {
@@ -597,6 +755,42 @@ body.locked {
 
   .logos {
     gap: 16px;
+  }
+
+  .section__tabs {
+    padding: 50px 0 60px;
+    margin-bottom: 20px;
+  }
+
+  .tabs__header-item {
+    margin-right: 0;
+    font-size: 18px;
+  }
+
+  .tabs__header-item.active:after {
+    bottom: -7px;
+  }
+
+  .tabs__content {
+    margin-top: 34px;
+  }
+
+  .tab__subtitle {
+    font-size: 13px;
+    margin-bottom: 10px;
+    line-height: 140%;
+  }
+
+  .tags {
+    gap: 8px;
+  }
+
+  .tags__item {
+    font-size: 16px;
+  }
+
+  .tags__item:not(.tags__item:last-child) {
+    padding-right: 8px;
   }
 }
 
@@ -713,6 +907,13 @@ body.locked {
   }
 }
 
+@media (max-width: 768px) {
+  .tabs__header {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
 @media (max-width: 767.98px) {
   .container {
     max-width: 740px;
@@ -748,6 +949,17 @@ body.locked {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%;
+  }
+
+  .tabs__content {
+    font-size: 52px;
+  }
+
+  .tab {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 

@@ -1,0 +1,150 @@
+.section__tabs {
+    padding: 100px 0 140px;
+    background: #FDF9F8;
+    margin-bottom: 40px;
+    @media (max-width: $breakpoint992) {
+        padding: 50px 0 60px;
+        margin-bottom: 20px;
+    }
+}
+
+.tabs {
+    width: 100%;
+    //margin-top: 150px;
+
+
+    &__header {
+        display: flex;
+        justify-content: start;
+        gap: 16px;
+        @media (max-width: 768px) {
+            flex-wrap: wrap;
+        }
+
+        &-item {
+            margin-right: 48px;
+            cursor: pointer;
+            position: relative;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 180%;
+            color: $primary;
+            @media (max-width: $breakpoint992) {
+                margin-right: 0;
+                font-size: 18px;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+
+            &.active {
+                &:after {
+                    position: absolute;
+                    content: '';
+                    height: 3px;
+                    width: 100%;
+                    background-color: $secondary;
+                    bottom: -15px;
+                    left: 0;
+                    @media (max-width: $breakpoint992) {
+                        bottom: -7px;
+                    }
+                }
+            }
+        }
+    }
+
+    &__content {
+        margin-top: 64px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 82px;
+        @media (max-width: $breakpoint992) {
+            margin-top: 34px;
+
+        }
+        @media (max-width: $breakpoint768) {
+            font-size: 52px;
+        }
+
+        &-item {
+            animation: fade .5s linear;
+        }
+    }
+}
+
+
+.tab {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    @media (max-width: $breakpoint768) {
+        flex-direction: column;
+    }
+    // .tab__item
+    &__item {
+        flex: 0 1 48%;
+
+        &.left__item {
+            flex: 0 1 48%;
+        }
+    }
+
+
+
+    // .tab__subtitle
+    &__subtitle {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 180%;
+        letter-spacing: 0.2em;
+        color: $primaryLight;
+        margin-bottom: 15px;
+        @media (max-width: $breakpoint992) {
+            font-size: 13px;
+            margin-bottom: 10px;
+            line-height: 140%;
+        }
+    }
+
+    &__img {
+        max-width: 600px;
+        width: 100%;
+        height: auto;
+    }
+}
+
+.tags {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    @media (max-width: $breakpoint992) {
+        gap: 8px;
+    }
+    // .tags__item
+    &__item {
+
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        color: $primary;
+        @media (max-width: $breakpoint992) {
+            font-size: 16px;
+
+        }
+
+        &:not(&:last-child ) {
+            padding-right: 16px;
+            border-right: 1px solid rgba(29, 39, 54, 0.1);
+            @media (max-width: $breakpoint992) {
+                padding-right: 8px;
+            }
+        }
+    }
+}

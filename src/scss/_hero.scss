@@ -1,8 +1,10 @@
 .section {
     &__hero {
         padding-top: 61px;
+        margin-bottom: 144px;
         @media (max-width: $breakpoint1200) {
             padding-top: 30px;
+            margin-bottom: 60px;
         }
     }
 }

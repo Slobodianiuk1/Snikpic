@@ -1,5 +1,5 @@
 // Мобильное меню бургер
-function burgerMenu() {
+function burgerMenu () {
     const burger = document.querySelector('.burger')
     const menu = document.querySelector('.menu')
     const body = document.querySelector('body')
@@ -26,6 +26,7 @@ function burgerMenu() {
         }
     })
 }
+
 burgerMenu()
 
 // Select
@@ -86,8 +87,9 @@ const getTemplate = (data = [], placeholder, selectedId, withImg) => {
         </div>
     `
 }
+
 class Select {
-    constructor(selector, options) {
+    constructor (selector, options) {
         this.$el = document.querySelector(selector)
         this.options = options
         this.selectedId = options.selectedId
@@ -95,8 +97,16 @@ class Select {
         this.setup()
     }
 
-    render() {
-        const { placeholder, data, withImg } = this.options
+    get isOpen () {
+        return this.$el.classList.contains('open')
+    }
+
+    get current () {
+        return this.options.data.find((item) => item.id === this.selectedId)
+    }
+
+    render () {
+        const {placeholder, data, withImg} = this.options
         this.$el.classList.add('select')
         this.$el.innerHTML = getTemplate(
             data,
@@ -105,15 +115,16 @@ class Select {
             withImg,
         )
     }
-    setup() {
+
+    setup () {
         this.clickHandler = this.clickHandler.bind(this)
         this.$el.addEventListener('click', this.clickHandler)
         this.$arrow = this.$el.querySelector('[data-type="arrow"]')
         this.$value = this.$el.querySelector('[data-type="value"]')
     }
 
-    clickHandler(event) {
-        const { type } = event.target.dataset
+    clickHandler (event) {
+        const {type} = event.target.dataset
 
         if (type === 'input') {
             this.toggle()
@@ -126,15 +137,7 @@ class Select {
         }
     }
 
-    get isOpen() {
-        return this.$el.classList.contains('open')
-    }
-
-    get current() {
-        return this.options.data.find((item) => item.id === this.selectedId)
-    }
-
-    select(id) {
+    select (id) {
         this.selectedId = id
         this.$value.textContent = this.current.value
 
@@ -155,21 +158,21 @@ class Select {
         this.close()
     }
 
-    toggle() {
+    toggle () {
         this.isOpen ? this.close() : this.open()
     }
 
-    open() {
+    open () {
         this.$el.classList.add('open')
         this.$arrow.classList.add('open')
     }
 
-    close() {
+    close () {
         this.$el.classList.remove('open')
         this.$arrow.classList.remove('open')
     }
 
-    destroy() {
+    destroy () {
         this.$el.removeEventListener('click', this.clickHandler)
         this.$el.innerHTML = ''
     }
@@ -222,7 +225,7 @@ const selectLang = new Select('#select', {
             value: 'DE',
         },
     ],
-    onSelect(item) {
+    onSelect (item) {
         // [ENG] Form logic after choosing option
         // [RU] Обработка формы после выбора
         document.querySelector('.hidden__input').value = item.value
@@ -232,11 +235,12 @@ const selectLang = new Select('#select', {
 
 
 // Tabs
-function tabs(headerSelector, tabSelector, contentSelector, activeClass, display='flex') {
+function tabs (headerSelector, tabSelector, contentSelector, activeClass, display = 'flex') {
     const header = document.querySelector(headerSelector),
         tab = document.querySelectorAll(tabSelector),
         content = document.querySelectorAll(contentSelector)
-    function hideTabContent() {
+
+    function hideTabContent () {
         content.forEach(item => {
             item.style.display = 'none'
         });
@@ -244,10 +248,12 @@ function tabs(headerSelector, tabSelector, contentSelector, activeClass, display
             item.classList.remove(activeClass)
         });
     }
-    function showTabContent(i = 0) {
+
+    function showTabContent (i = 0) {
         content[i].style.display = display
         tab[i].classList.add(activeClass)
     }
+
     hideTabContent()
     showTabContent()
     header.addEventListener('click', e => {
@@ -255,7 +261,7 @@ function tabs(headerSelector, tabSelector, contentSelector, activeClass, display
         if (target.classList.contains(tabSelector.replace(/\./, '')) ||
             target.parentNode.classList.contains(tabSelector.replace(/\./, ''))) {
             tab.forEach((item, i) => {
-                if ( target == item || target.parentNode == item ) {
+                if (target == item || target.parentNode == item) {
                     hideTabContent()
                     showTabContent(i)
                 }
@@ -264,8 +270,18 @@ function tabs(headerSelector, tabSelector, contentSelector, activeClass, display
     })
 }
 
-// ПЕРВЫЙ аргумент - класс всего нашего хедера табов.
-// ВТОРОЙ аргумент - класс конкретного элемента, при клике на который будет переключатся таб.
-// ТРЕТИЙ аргумент - класс того блока, который будет переключаться.
-// ЧЕТВЕРТЫЙ аргумент - класс активности, который будет добавлятся для таба, который сейчас активен.
-tabs( '.tabs__header' ,'.tabs__header-item', '.tabs__content-item', 'active')
+tabs('.tabs__header', '.tabs__header-item', '.tabs__content-item', 'active')
+
+
+// slider
+const swiper = new Swiper('.swiper', {
+
+    pagination: {
+        el: '.swiper-pagination',
+    },
+    navigation: {
+        nextEl: '.next__btn',
+        prevEl: '.prev__btn',
+    },
+
+});
